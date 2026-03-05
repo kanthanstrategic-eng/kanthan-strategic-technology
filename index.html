@@ -1,68 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kanthan Strategic Technology</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
     <style>
         body {
             margin: 0;
-            font-family: 'Segoe UI', sans-serif;
-            background: #f5f7fa;
+            font-family: 'Poppins', sans-serif;
+            background: #f4f7fb;
             color: #333;
+            scroll-behavior: smooth;
         }
 
+        /* HERO SECTION */
         header {
-            background: linear-gradient(135deg, #1a73e8, #0b4db8);
-            padding: 80px 20px;
+            background: url('https://images.unsplash.com/photo-1535223289827-42f1e9919769?auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+            height: 90vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             text-align: center;
             color: white;
+            position: relative;
+        }
+
+        header::after {
+            content: "";
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.55);
+        }
+
+        header .content {
+            position: relative;
+            z-index: 2;
+            animation: fadeIn 2s ease-in-out;
         }
 
         header h1 {
-            font-size: 48px;
-            margin-bottom: 10px;
+            font-size: 60px;
+            margin: 0;
+            font-weight: 700;
         }
 
         header p {
-            font-size: 20px;
+            font-size: 22px;
+            margin-top: 10px;
             opacity: 0.9;
         }
 
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* SECTIONS */
         .section {
-            padding: 60px 10%;
+            padding: 70px 10%;
         }
 
         .section h2 {
-            font-size: 32px;
-            margin-bottom: 20px;
+            font-size: 36px;
             color: #0b4db8;
+            text-align: center;
+            margin-bottom: 40px;
         }
 
+        /* SERVICES GRID */
         .services {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 20px;
+            gap: 25px;
         }
 
         .card {
             background: white;
             padding: 25px;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            border-radius: 14px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            text-align: center;
             transition: 0.3s;
+            animation: fadeInUp 1s ease forwards;
+            opacity: 0;
+        }
+
+        .card i {
+            font-size: 40px;
+            color: #1a73e8;
+            margin-bottom: 15px;
         }
 
         .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
         }
 
-        .why-us {
-            background: #eef3ff;
-            border-radius: 12px;
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* CONTACT */
+        .contact-box {
+            background: white;
             padding: 40px;
+            border-radius: 14px;
+            width: 60%;
+            margin: auto;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 14px 30px;
+            background: #1a73e8;
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 18px;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #0b4db8;
         }
 
         footer {
@@ -72,106 +143,61 @@
             padding: 20px;
             margin-top: 40px;
         }
-
-        .contact-box {
-            background: white;
-            padding: 30px;
-            border-radius: 12px;
-            width: 60%;
-            margin: auto;
-            text-align: center;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-        }
-
-        a {
-            color: #1a73e8;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .btn {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 12px 25px;
-            background: #1a73e8;
-            color: white;
-            border-radius: 8px;
-            text-decoration: none;
-            font-size: 18px;
-        }
-
-        .btn:hover {
-            background: #0b4db8;
-        }
     </style>
 </head>
 
 <body>
 
+    <!-- HERO -->
     <header>
-        <h1>Kanthan Strategic Technology</h1>
-        <p>Your trusted partner for full‑stack development, cloud, DevOps & tech consulting</p>
+        <div class="content">
+            <h1>Kanthan Strategic Technology</h1>
+            <p>Empowering businesses with world‑class IT solutions, consulting & engineering excellence</p>
+        </div>
     </header>
 
+    <!-- ABOUT -->
     <section class="section">
         <h2>About Us</h2>
-        <p>
-            Kanthan Strategic Technology is a Chennai‑based consultancy company specializing in delivering 
-            high‑quality technology solutions. We identify client needs, provide the right resources, 
-            and execute projects with precision.  
-            Our team brings deep expertise across modern tech stacks, cloud platforms, and scalable architectures.
+        <p style="text-align:center; max-width:900px; margin:auto;">
+            We are a Chennai‑based IT consultancy delivering high‑quality engineering, cloud, DevOps, 
+            and full‑stack development services. Our mission is to understand client needs, deploy 
+            the right talent, and deliver scalable, modern, and secure technology solutions.
         </p>
     </section>
 
+    <!-- SERVICES -->
     <section class="section">
-        <h2>Our Services</h2>
+        <h2>Our IT Services</h2>
 
         <div class="services">
-            <div class="card">
-                <h3>Full‑Stack Development</h3>
-                <p>End‑to‑end development using .NET, Node.js, React, Vue, Angular, SQL, and microservices.</p>
-            </div>
 
-            <div class="card">
-                <h3>Web Application Development</h3>
-                <p>Modern, responsive, secure web apps tailored to business needs.</p>
-            </div>
+            <div class="card"><i class="fa-solid fa-laptop-code"></i><h3>Full‑Stack Development</h3><p>.NET, Node.js, React, Vue, Angular, SQL, Microservices.</p></div>
 
-            <div class="card">
-                <h3>Frontend Engineering</h3>
-                <p>Pixel‑perfect UI/UX with React.js, Vue.js, TypeScript, and modern frameworks.</p>
-            </div>
+            <div class="card"><i class="fa-solid fa-globe"></i><h3>Web Development</h3><p>Responsive, secure, scalable web applications.</p></div>
 
-            <div class="card">
-                <h3>DevOps & Cloud</h3>
-                <p>CI/CD automation, Docker, Kubernetes, AWS, Azure, cloud migration & infra setup.</p>
-            </div>
+            <div class="card"><i class="fa-solid fa-mobile-screen"></i><h3>Mobile App Development</h3><p>Android, iOS, Flutter, React Native.</p></div>
 
-            <div class="card">
-                <h3>Data Engineering</h3>
-                <p>Data pipelines, ETL, analytics dashboards, Power BI, and cloud data solutions.</p>
-            </div>
+            <div class="card"><i class="fa-solid fa-cloud"></i><h3>Cloud Engineering</h3><p>AWS, Azure, GCP cloud migration & architecture.</p></div>
 
-            <div class="card">
-                <h3>Resource Augmentation</h3>
-                <p>Deploy skilled engineers to your team for short‑term or long‑term projects.</p>
-            </div>
+            <div class="card"><i class="fa-solid fa-gears"></i><h3>DevOps Automation</h3><p>CI/CD, Docker, Kubernetes, GitHub Actions, Azure DevOps.</p></div>
+
+            <div class="card"><i class="fa-solid fa-database"></i><h3>Data Engineering</h3><p>ETL pipelines, Data Lakes, Power BI dashboards.</p></div>
+
+            <div class="card"><i class="fa-solid fa-robot"></i><h3>AI & Automation</h3><p>Chatbots, ML models, workflow automation.</p></div>
+
+            <div class="card"><i class="fa-solid fa-bug"></i><h3>QA & Testing</h3><p>Automation testing, performance testing, manual QA.</p></div>
+
+            <div class="card"><i class="fa-solid fa-headset"></i><h3>IT Support</h3><p>24/7 monitoring, maintenance, troubleshooting.</p></div>
+
+            <div class="card"><i class="fa-solid fa-users"></i><h3>Resource Augmentation</h3><p>Deploy skilled engineers for short or long‑term needs.</p></div>
+
+            <div class="card"><i class="fa-solid fa-lightbulb"></i><h3>IT Consulting</h3><p>Architecture, strategy, modernization, optimization.</p></div>
+
         </div>
     </section>
 
-    <section class="section">
-        <h2>Why Choose Us</h2>
-        <div class="why-us">
-            <ul>
-                <li>Strong expertise across multiple tech stacks</li>
-                <li>Client‑focused approach with transparent communication</li>
-                <li>Fast delivery with high‑quality engineering standards</li>
-                <li>Flexible engagement models (project‑based or resource‑based)</li>
-                <li>Proven experience in scalable, cloud‑native solutions</li>
-            </ul>
-        </div>
-    </section>
-
+    <!-- CONTACT -->
     <section class="section">
         <h2>Contact Us</h2>
         <div class="contact-box">
@@ -187,4 +213,3 @@
 
 </body>
 </html>
-  
